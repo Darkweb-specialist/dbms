@@ -1,0 +1,8 @@
+step1: create table student(Emp_ID INT PRIMARY KEY, Name VARCHAR(40),Salary INT);
+step2: insert into student(Emp_ID,Name,Salary) VALUES(1,"Nooruddin",400000),(2,"dawr",50000),(3,"VIvek",0);
+step3: select * from student;
+step 4: select SUM(Salary) from student;
+step 5: select COUNT(*) from student;
+step 6: select AVG(Salary) from student;
+step 7: select MAX(Salary) from student;
+step 8: select MIN(Salary) from student;

@@ -1,0 +1,5 @@
+step1: create table student(roll_no INT PRIMARY KEY, Name VARCHAR(40),Branch VARCHAR(50),Marks INT);
+step 2: insert into student(roll_no,Name,Branch,Marks) values(1,"abc","DS",34),(2,"dcs","DS",56);
+step 3: alter table student ADD Email VARCHAR(60);
+step 4: update student set marks=50 where roll_no =1;
+step 5: selecr * from student;

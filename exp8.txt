@@ -1,0 +1,26 @@
+                                             8A
+step 1:CREATE TABLE emp(Emp_ID INT PRIMARY KEY,Name VARCHAR(40),Salary INT);
+step 2: INSERT INTO emp (Emp_ID, Name, Salary) VALUES(1, 'Nooruddin', 400000),(2, 'Dawr', 50000),(3, 'Vivek', 30000),(4, 'Ali', 400000);
+
+
+Single Row Subquery
+step 3:SELECT Name, Salary FROM emp WHERE Salary = (SELECT MAX(Salary) FROM emp);
+
+Multi-Row Subquery
+step 4 : SELECT Name, Salary FROM emp WHERE Salary > (SELECT AVG(Salary) FROM emp);
+
+Subquery with EXIST
+step 5: SELECT Name FROM emp e WHERE EXISTS(SELECT 1 FROM emp WHERE Salary > 30000 AND e.Emp_ID = Emp_ID);
+
+                                          8B
+step 1: CREATE TABLE emp (Emp_ID INT PRIMARY KEY,Name VARCHAR(40),Salary INT,Department VARCHAR(30));
+step2:  INSERT INTO emp (Emp_ID, Name, Salary, Department) VALUES(1, 'Nooruddin', 400000, 'IT'),(2, 'Dawr', 50000, 'HR'),(3, 'Vivek', 30000, 'IT'),(4, 'Ali', 400000, 'Finance'),(5, 'Sara', 50000, 'HR'),(6, 'John', 30000, 'IT');
+
+GROUP BY
+step 3: SELECT Department, COUNT(*) AS Total_Employees FROM emp GROUP BY Department;
+
+HAVING
+step 4: SELECT Department, SUM(Salary) AS Total_Salary FROM emp GROUP BY Department HAVING SUM(Salary) > 100000;
+
+ORDER BY
+STEP 5: SELECT Name, Salary FROM emp ORDER BY Salary DESC;

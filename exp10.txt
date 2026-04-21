@@ -1,0 +1,38 @@
+step 1: CREATE TABLE emp(Emp_ID INT PRIMARY KEY,Name VARCHAR(40),Salary INT);
+step 2: INSERT INTO emp VALUES(1, 'Nooruddin', 400000),(2, 'Dawr', 50000),(3, 'Vivek', 30000);
+
+DCL Command
+step 3: GRANT SELECT ON emp TO user1; 
+                   OR
+step 3: GRANT ALL PRIVILEGES ON emp TO user1;
+---------------------------------------------------------------------------------------------
+step 4: REVOKE SELECT ON emp FROM user1;
+                    OR
+step 4: REVOKE ALL PRIVILEGES ON emp FROM user1;
+--------------------------------------------------------------------------------------------------
+TCL Command
+COMMIT
+step 5: INSERT INTO emp VALUES (4, 'Ali', 60000);
+step 6: COMMIT;
+------------------------------------------------------------------------------------------------
+SAVEPOINT
+step 7: SAVEPOINT sp1;
+--------------------------------------------------------------------------------------------
+ROLL BACK
+step 8: INSERT INTO emp VALUES (5, 'Sara', 70000);
+
+step 9: ROLLBACK TO sp1;
+-------------------------------------------------------------------------------------------------
+
+exmaple:
+START TRANSACTION;
+
+INSERT INTO emp VALUES (6, 'John', 80000);
+
+SAVEPOINT sp1;
+
+INSERT INTO emp VALUES (7, 'Mike', 90000);
+
+ROLLBACK TO sp1;
+
+COMMIT;

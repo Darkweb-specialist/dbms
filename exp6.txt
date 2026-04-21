@@ -1,0 +1,32 @@
+step1: create table student(Emp_ID INT PRIMARY KEY, Name VARCHAR(40));
+step2: insert into student(Emp_ID,Name) VALUES(1,"Nooruddin"),(2,"dawr"),(3,"VIvek");
+
+step3: create table student_sal(Emp_ID INT PRIMARY KEY,Salary INT);
+step4: insert into student_sal(Emp_ID,Salary) VALUES(1,400000),(2,50000),(3,0);
+
+step 5: select * from student;
+step 6: select * from student_sal;
+
+NATURAL JOINT
+STEP 7: select * from student NATURAL JOIN student_sal;
+
+INNER joint
+step 8: select student.Emp_ID,student.name,student_sal.Salary from student INNER JOIN student_sal ON student.Emp_ID = student_sal.Emp_ID;
+
+RIGTH JOINT
+step 9: select student.Name,student_sal.Salary from student RIGHT JOIN student_sal ON student.Emp_ID = student_sal.Emp_ID;
+
+LEFT JOINT
+step 10: select student.Name,student_sal.Salary from student LEFT JOIN student_sal ON student.Emp_ID = student_sal.Emp_ID;
+
+Equi JOINT
+step 11: select s.Emp_ID, s.Name, ss.Salary from student s, student_sal ss where s.Emp_ID = ss.Emp_ID;
+
+SELF JOINT
+step 12: alter table student ADD manager_ID INT;
+
+STEP 13: UPDATE student SET Manager_ID = NULL WHERE Emp_ID = 1;
+STEP 14: UPDATE student SET Manager_ID = 1 WHERE Emp_ID = 2;
+STEP 15: UPDATE student SET Manager_ID = 1 WHERE Emp_ID = 3; 
+
+STEP 16: SELECT A.Name AS Employee, B.Name AS Manager FROM student A LEFT JOIN student B ON A.Manager_ID = B.Emp_ID;
