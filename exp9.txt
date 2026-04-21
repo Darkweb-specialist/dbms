@@ -1,0 +1,17 @@
+step 1: CREATE TABLE sales (Region VARCHAR(20),Product VARCHAR(20),Year INT,Amount INT);
+step 2: INSERT INTO sales(Region,Product,Year,Amount) VALUES('North', 'Laptop', 2023, 50000),('North', 'Mobile', 2023, 30000),('South', 'Laptop', 2023, 40000),('South', 'Mobile', 2023, 20000),('North', 'Laptop', 2024, 60000),('South', 'Mobile', 2024, 25000);
+
+ROLLUP
+step 3: SELECT Region, Product, SUM(Amount) AS Total FROM sales GROUP BY ROLLUP (Region, Product);
+
+CUBE
+step 4: SELECT Region, Product, SUM(Amount) AS Total FROM sales GROUP BY CUBE (Region, Product);
+
+Drill-Down
+step 5: SELECT Region, Product, Year, SUM(Amount) AS Total FROM sales GROUP BY Region, Product, Year;
+
+slice
+step 6: SELECT *  FROM sales WHERE Region = 'North';
+
+Dice
+step 7: SELECT * FROM sales WHERE Region = 'North' AND Product = 'Laptop';
